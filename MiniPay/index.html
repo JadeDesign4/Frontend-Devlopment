@@ -3,140 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiniPay Static UI</title>
-    <link rel="shortcut icon" href="../icons/paper-plane-solid.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <title>MiniPay Dashboard</title>
+    <link rel="shortcut icon" href="./icons/paper-plane-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav>
-        <div class="nav-container">
-            <div class="profile">
-                <div class="pic"></div>
-                <span>Hello! Welcome to MiniPay! 👋 </span>
-            </div>
-            <div class="qr-code"></div>
-        </div>
-    </nav>
 
-    <!-- Finance Section -->
-    <section class="hero">
-        <div class="cash">
-            <div class="dollar">
-                <h2>Dollars</h2>
-                <p>$0.21</p>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <nav>
+            <img src="./img/Minipay-logo/Logo on black.png" alt="MiniPay-Logo">
+            <div class="nav-items">
+                <a href="./index.html">Home</a>
+                <a href="./card.html">Card</a>
+                <a href="./share.html">Share</a>
+                <a href="./more.html">Other</a>
+                <a href="./extra.html">Extra</a>
             </div>
-            <div class="switch">
-                <div class="currency">
-                    <h2>USD</h2>
-                    <p>NGN</p>
-                </div>
-                <div class="toggle">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <div class="finance-opt">
-            <div class="finance-select">
-                <div class="deposit">
-                    <div class="downward">
-                    </div>
-                    <p>Deposit</p>
-                </div>
-                <div class="withdraw">
-                    <div class="upward">
-                    </div>
-                    <p>Withdraw</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="now">
-        <div class="now-con">
-            <h2>Just one more thing</h2>
-            <p>Make your first deposit and start paying anyone, anywhere, in just a few taps.</p>
-        </div>
-        <button>
-            Deposit now
-        </button>
-    </div>
-
-    <div class="activity">
-        <div class="panel">
-            <div class="recent">
-                <h3>Recent activity</h3>
-            </div>
-                <button>
-                    View more
-                </button>
-        </div>
-        <div class="pkg">
-            <div class="rewards">
-                <div class="pkg-txt">
-                    <div class="gift">
-                        <p>🎁</p>
-                    </div>
-                    <div class="rewards-txt">
-                        <h3>Reward</h3>
-                        <p>9hr ago</p>
-                    </div>
-                </div>
-                <div class="bal">+$0.01</div>
-            </div>
-            <div class="rewards">
-                <div class="pkg-txt">
-                    <div class="gift">
-                        <p>🎁</p>
-                    </div>
-                    <div class="rewards-txt">
-                        <h3>Reward</h3>
-                        <p>9hr ago</p>
-                    </div>
-                </div>
-                <div class="bal">+$0.01</div>
-            </div>
-            <div class="rewards">
-                <div class="pkg-txt">
-                    <div class="gift">
-                        <p>🎁</p>
-                    </div>
-                    <div class="rewards-txt">
-                        <h3>Reward</h3>
-                        <p>9hr ago</p>
-                    </div>
-                </div>
-                <div class="bal">+$0.01</div>
-            </div>
-            <div class="rewards">
-                <div class="pkg-txt">
-                    <div class="gift">
-                        <p>🎁</p>
-                    </div>
-                    <div class="rewards-txt">
-                        <h3>Reward</h3>
-                        <p>9hr ago</p>
-                    </div>
-                </div>
-                <div class="bal">+$0.01</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- footer nav -->
-    <div class="footer-nav">
-        <div class="home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M277.8 8.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S18.8 272 32 272l16 0 0 176c0 35.3 28.7 64 64 64l288 0c35.3 0 64-28.7 64-64l0-176 16 0c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1l-224-208zM200 256a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zM144 432c0-44.2 35.8-80 80-80l64 0c44.2 0 80 35.8 80 80 0 8.8-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16z"/></svg>
-        </div>
-        <div class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M512 176C520.8 176 528 183.2 528 192L528 224L112 224L112 192C112 183.2 119.2 176 128 176L512 176zM528 288L528 448C528 456.8 520.8 464 512 464L128 464C119.2 464 112 456.8 112 448L112 288L528 288zM128 128C92.7 128 64 156.7 64 192L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 192C576 156.7 547.3 128 512 128L128 128zM144 408C144 421.3 154.7 432 168 432L216 432C229.3 432 240 421.3 240 408C240 394.7 229.3 384 216 384L168 384C154.7 384 144 394.7 144 408zM288 408C288 421.3 298.7 432 312 432L376 432C389.3 432 400 421.3 400 408C400 394.7 389.3 384 376 384L312 384C298.7 384 288 394.7 288 408z"/></svg></div>
-        <div class="send">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9L229.2 276.1c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8l496.9-178z"/></svg>
-        </div>
-        <div class="grid-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="48px" viewBox="0 0 24 24" width="48px" fill="#fff"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,3v8h8V3H3z M9,9H5V5h4V9z M3,13v8h8v-8H3z M9,19H5v-4h4V19z M13,3v8h8V3H13z M19,9h-4V5h4V9z M13,13v8h8v-8H13z M19,19h-4v-4h4V19z"/></g></g></g></svg>
-        </div>
+        </nav>
     </div> 
     
+    <!-- Main Content -->
+    <div class="page">
+        <div class="bank">
+            <div class="grid-card">
+
+                <!-- User Greeting -->
+                <div class="nav-container">
+                    <div class="profile">
+                        <div class="pic"></div>
+                        <span>Hello! Welcome to MiniPay! </span>
+                        <!-- <img src="./icons/waving-hand-svgrepo-com.svg" alt="waving hand icon"> -->
+                    </div>
+                    <!-- <div class="qr-code"></div> -->
+                </div>
+                
+                <!-- Finance Section -->
+            <section class="hero">
+                <div class="cash">
+                    <div class="dollar">
+                        <h2>Currency</h2>
+                        <p>$0.04</p>
+                    </div>
+                    <div class="switch">
+                        <div class="currency">
+                            <h2>USD</h2>
+                            <p>NGN</p>
+                        </div>
+                        <div class="toggle">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="finance-opt">
+                    <div class="finance-select">
+                        <div class="deposit">
+                            <div class="downward">
+                            </div>
+                            <p>Deposit</p>
+                        </div>
+                        <div class="withdraw">
+                            <div class="upward">
+                            </div>
+                            <p>Withdraw</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Recent Activity -->
+            <div class="activity">
+                <div class="panel">
+                    <div class="recent">
+                        <h3>Recent activity</h3>
+                    </div>
+                        <button>
+                            View more
+                        </button>
+                </div>
+                <div class="pkg">
+                    <div class="rewards">
+                        <div class="pkg-txt">
+                            <div class="gift"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#ffffff"><path d="M160-80v-445H80v-230h220q-8-12-12-25.5t-4-27.5q0-46.67 32.67-79.33Q349.33-920 396-920q24 0 46.5 10t37.5 29q15-19 37.5-29t46.5-10q46.67 0 79.33 32.67Q676-854.67 676-808q0 14-4 27.5T660-755h220v230h-80v445H160Zm367-765.07q-15 14.93-15 37T526.93-771q14.93 15 37 15T601-770.93q15-14.93 15-37T601.07-845q-14.93-15-37-15T527-845.07Zm-183 37Q344-786 358.93-771t37 15Q418-756 433-770.93t15-37Q448-830 433.07-845t-37-15Q374-860 359-845.07t-15 37ZM140-695v110h310v-110H140Zm310 555v-385H214v385h236Zm60 0h236v-385H510v385Zm310-445v-110H510v110h310Z"/></svg>
+                            </div>
+                            <div class="rewards-txt">
+                                <h3>Reward</h3>
+                                <p>9hr ago</p>
+                            </div>
+                        </div>
+                        <div class="bal">+$0.01</div>
+                    </div>
+                    <div class="rewards">
+                        <div class="pkg-txt">
+                            <div class="gift"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#ffffff"><path d="M160-80v-445H80v-230h220q-8-12-12-25.5t-4-27.5q0-46.67 32.67-79.33Q349.33-920 396-920q24 0 46.5 10t37.5 29q15-19 37.5-29t46.5-10q46.67 0 79.33 32.67Q676-854.67 676-808q0 14-4 27.5T660-755h220v230h-80v445H160Zm367-765.07q-15 14.93-15 37T526.93-771q14.93 15 37 15T601-770.93q15-14.93 15-37T601.07-845q-14.93-15-37-15T527-845.07Zm-183 37Q344-786 358.93-771t37 15Q418-756 433-770.93t15-37Q448-830 433.07-845t-37-15Q374-860 359-845.07t-15 37ZM140-695v110h310v-110H140Zm310 555v-385H214v385h236Zm60 0h236v-385H510v385Zm310-445v-110H510v110h310Z"/></svg>
+                            </div>
+                            <div class="rewards-txt">
+                                <h3>Reward</h3>
+                                <p>9hr ago</p>
+                            </div>
+                        </div>
+                        <div class="bal">+$0.01</div>
+                    </div>
+                    <div class="rewards">
+                        <div class="pkg-txt">
+                            <div class="gift"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#ffffff"><path d="M160-80v-445H80v-230h220q-8-12-12-25.5t-4-27.5q0-46.67 32.67-79.33Q349.33-920 396-920q24 0 46.5 10t37.5 29q15-19 37.5-29t46.5-10q46.67 0 79.33 32.67Q676-854.67 676-808q0 14-4 27.5T660-755h220v230h-80v445H160Zm367-765.07q-15 14.93-15 37T526.93-771q14.93 15 37 15T601-770.93q15-14.93 15-37T601.07-845q-14.93-15-37-15T527-845.07Zm-183 37Q344-786 358.93-771t37 15Q418-756 433-770.93t15-37Q448-830 433.07-845t-37-15Q374-860 359-845.07t-15 37ZM140-695v110h310v-110H140Zm310 555v-385H214v385h236Zm60 0h236v-385H510v385Zm310-445v-110H510v110h310Z"/></svg>
+                            </div>
+                            <div class="rewards-txt">
+                                <h3>Reward</h3>
+                                <p>9hr ago</p>
+                            </div>
+                        </div>
+                        <div class="bal">+$0.01</div>
+                    </div>
+                    <div class="rewards">
+                        <div class="pkg-txt">
+                            <div class="gift"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#ffffff"><path d="M160-80v-445H80v-230h220q-8-12-12-25.5t-4-27.5q0-46.67 32.67-79.33Q349.33-920 396-920q24 0 46.5 10t37.5 29q15-19 37.5-29t46.5-10q46.67 0 79.33 32.67Q676-854.67 676-808q0 14-4 27.5T660-755h220v230h-80v445H160Zm367-765.07q-15 14.93-15 37T526.93-771q14.93 15 37 15T601-770.93q15-14.93 15-37T601.07-845q-14.93-15-37-15T527-845.07Zm-183 37Q344-786 358.93-771t37 15Q418-756 433-770.93t15-37Q448-830 433.07-845t-37-15Q374-860 359-845.07t-15 37ZM140-695v110h310v-110H140Zm310 555v-385H214v385h236Zm60 0h236v-385H510v385Zm310-445v-110H510v110h310Z"/></svg>
+                            </div>
+                            <div class="rewards-txt">
+                                <h3>Reward</h3>
+                                <p>9hr ago</p>
+                            </div>
+                        </div>
+                        <div class="bal">+$0.01</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
