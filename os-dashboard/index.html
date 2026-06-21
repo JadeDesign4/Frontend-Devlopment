@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionOS System Dashboard</title>
+  <meta name="description" content="A futuristic, glassmorphic OS system dashboard for real-time monitoring, screen recording, and system diagnostics.">
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons for premium visual icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background glow blobs -->
+  <div class="glow-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="dashboard-container">
+    <!-- Top System Bar -->
+    <header class="top-bar glass">
+      <div class="user-profile">
+        <div class="profile-avatar">
+          <i data-lucide="user" class="avatar-icon"></i>
+        </div>
+        <div class="profile-info">
+          <span class="welcome-text">System Active</span>
+          <span class="user-name">Administrator</span>
+        </div>
+      </div>
+
+      <div class="search-command-bar">
+        <i data-lucide="terminal" class="terminal-icon"></i>
+        <input type="text" id="cmdInput" placeholder="Type a command (e.g., /snip, /record, /theme)..." autocomplete="off">
+        <button id="cmdBtn" title="Run command"><i data-lucide="corner-down-left"></i></button>
+      </div>
+
+      <div class="top-controls">
+        <button id="themeToggle" class="control-btn" title="Toggle Theme">
+          <i data-lucide="moon" class="theme-icon-dark"></i>
+          <i data-lucide="sun" class="theme-icon-light" style="display: none;"></i>
+          <span class="btn-label">Theme</span>
+        </button>
+        
+        <div class="time-widget">
+          <i data-lucide="clock" class="widget-icon"></i>
+          <div class="time-display">
+            <span id="timeClock">00:00:00 AM</span>
+            <span id="dateCalendar">Friday, Jun 5, 2026</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-layout">
+      <!-- Left sidebar navigation -->
+      <aside class="sidebar glass">
+        <nav class="sidebar-nav">
+          <button class="nav-item active" data-tab="dashboard" title="Dashboard">
+            <i data-lucide="layout-dashboard"></i>
+          </button>
+          <button class="nav-item" data-tab="metrics" title="System Metrics">
+            <i data-lucide="activity"></i>
+          </button>
+          <button class="nav-item" data-tab="capture" title="Screen Capture">
+            <i data-lucide="aperture"></i>
+          </button>
+          <button class="nav-item" data-tab="network" title="Network & Security">
+            <i data-lucide="wifi"></i>
+          </button>
+          <button class="nav-item" data-tab="logs" title="System Console">
+            <i data-lucide="terminal-square"></i>
+          </button>
+        </nav>
+        <div class="sidebar-footer">
+          <button class="nav-item" id="settingsBtn" title="Settings">
+            <i data-lucide="settings"></i>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main workspace grid -->
+      <main class="dashboard-grid">
+        
+        <!-- Row 1: CPU Activity Chart -->
+        <section class="grid-card card-large glass" id="cpu-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="cpu" class="title-icon color-blue"></i>
+              <h3>Processor Performance</h3>
+            </div>
+            <div class="card-actions">
+              <span class="badge badge-pulse" id="cpu-badge">Load: 12%</span>
+            </div>
+          </div>
+          <div class="card-content chart-container">
+            <canvas id="cpuChart"></canvas>
+          </div>
+          <div class="card-footer-metrics">
+            <div class="metric-item">
+              <span class="metric-label">Frequency</span>
+              <span class="metric-value" id="cpu-freq">3.8 GHz</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Cores Active</span>
+              <span class="metric-value">8 / 8</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Processes</span>
+              <span class="metric-value" id="cpu-processes">142</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Row 2 Column 1: Memory & Swap Gauges -->
+        <section class="grid-card card-medium glass" id="memory-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="database" class="title-icon color-purple"></i>
+              <h3>Memory Management</h3>
+            </div>
+          </div>
+          <div class="card-content memory-gauges">
+            <div class="gauge-wrapper">
+              <div class="progress-ring-container">
+                <svg class="progress-ring" width="120" height="120">
+                  <circle class="progress-ring-bg" stroke="rgba(255,255,255,0.08)" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                  <circle id="ram-progress" class="progress-ring-circle color-purple" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                </svg>
+                <div class="gauge-text">
+                  <span class="gauge-value" id="ram-percent">0%</span>
+                  <span class="gauge-label">RAM</span>
+                </div>
+              </div>
+              <div class="gauge-info">
+                <span class="info-used" id="ram-used">0.0 GB</span>
+                <span class="info-total" id="ram-total">8.0 GB Physical</span>
+              </div>
+            </div>
+
+            <div class="gauge-wrapper">
+              <div class="progress-ring-container">
+                <svg class="progress-ring" width="120" height="120">
+                  <circle class="progress-ring-bg" stroke="rgba(255,255,255,0.08)" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                  <circle id="swap-progress" class="progress-ring-circle color-cyan" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                </svg>
+                <div class="gauge-text">
+                  <span class="gauge-value" id="swap-percent">0%</span>
+                  <span class="gauge-label">SWAP</span>
+                </div>
+              </div>
+              <div class="gauge-info">
+                <span class="info-used" id="swap-used">0.0 GB</span>
+                <span class="info-total" id="swap-total">4.0 GB Virtual</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Row 2 Column 2: Live Network & Battery -->
+        <section class="grid-card card-medium glass" id="diagnostics-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="shield-alert" class="title-icon color-green"></i>
+              <h3>Diagnostics & Network</h3>
+            </div>
+          </div>
+          <div class="card-content status-grid">
+            <div class="status-item">
+              <div class="status-icon-wrapper color-green-bg">
+                <i data-lucide="wifi" id="network-icon"></i>
+              </div>
+              <div class="status-details">
+                <span class="status-label">Network Status</span>
+                <span class="status-val" id="network-status">Online</span>
+              </div>
+            </div>
+            
+            <div class="status-item">
+              <div class="status-icon-wrapper color-blue-bg">
+                <i data-lucide="activity-square"></i>
+              </div>
+              <div class="status-details">
+                <span class="status-label">Connection Latency</span>
+                <span class="status-val" id="ping-latency">Calculating...</span>
+              </div>
+            </div>
+
+            <div class="status-item">
+              <div class="status-icon-wrapper color-orange-bg">
+                <i data-lucide="battery" id="battery-icon"></i>
+              </div>
+              <div class="status-details">
+                <span class="status-label">System Battery</span>
+                <span class="status-val" id="battery-status">Detecting...</span>
+              </div>
+            </div>
+
+            <div class="status-item">
+              <div class="status-icon-wrapper color-cyan-bg">
+                <i data-lucide="hourglass"></i>
+              </div>
+              <div class="status-details">
+                <span class="status-label">Dashboard Uptime</span>
+                <span class="status-val" id="uptime-val">00:00:00</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Row 3 Column 1: Screen Snip & Record Hub -->
+        <section class="grid-card card-wide glass" id="capture-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="video" class="title-icon color-red"></i>
+              <h3>Screen Snipping & Capture Engine</h3>
+            </div>
+            <div class="capture-state-badge" id="capture-badge" style="display: none;">
+              <span class="record-dot"></span> RECORDING
+            </div>
+          </div>
+          
+          <div class="card-content capture-hub">
+            <div class="capture-controls">
+              <button class="action-btn btn-record" id="startRecordBtn">
+                <i data-lucide="circle-dot"></i> Record Desktop
+              </button>
+              <button class="action-btn btn-record stop" id="stopRecordBtn" style="display: none;">
+                <i data-lucide="square"></i> Stop Recording
+              </button>
+              <button class="action-btn btn-snip" id="takeSnipBtn">
+                <i data-lucide="scissors"></i> Take Snip
+              </button>
+            </div>
+
+            <div class="capture-workspace">
+              <!-- Video Stream or Captured Snippets visual area -->
+              <div class="preview-viewport" id="previewViewport">
+                <div class="viewport-placeholder">
+                  <i data-lucide="clapperboard" class="placeholder-icon"></i>
+                  <p>Screen recording or captured screen snips will be previewed here</p>
+                </div>
+                <video id="recordPreview" controls style="display: none;"></video>
+                <div class="snip-editor-container" style="display: none;">
+                  <canvas id="snipCanvas"></canvas>
+                </div>
+              </div>
+
+              <!-- Output actions -->
+              <div class="output-actions" id="outputActions" style="display: none;">
+                <button class="save-btn" id="downloadCaptureBtn">
+                  <i data-lucide="download"></i> Download Capture
+                </button>
+                <button class="discard-btn" id="clearCaptureBtn">
+                  <i data-lucide="trash-2"></i> Discard
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Row 3 Column 2: System CLI Console -->
+        <section class="grid-card card-narrow glass" id="console-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="terminal" class="title-icon"></i>
+              <h3>Console log</h3>
+            </div>
+            <button class="clear-console-btn" id="clearConsole" title="Clear Console">
+              <i data-lucide="trash-2"></i>
+            </button>
+          </div>
+          <div class="card-content console-content" id="consoleLogs">
+            <div class="console-line system-msg">[SYSTEM] Boot sequence initialized successfully.</div>
+            <div class="console-line system-msg">[SYSTEM] Ready for commands. Try typing /help in the search bar.</div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
