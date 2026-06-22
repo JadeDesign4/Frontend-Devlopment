@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MiniPay Dashboard - Manage your wallet, send funds, and track transactions.">
+    <meta name="theme-color" content="#035824">
+    <title>MiniPay Dashboard</title>
+    <link rel="shortcut icon" href="./icons/paper-plane-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="./index.html" class="logo-link" aria-label="MiniPay home">
+                    <img class="logo" src="./img/Minipay-logo/Logo on black.png" alt="MiniPay logo">
+                </a>
+
+                <button class="mobile-menu-button" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="nav-items">
+                    <span class="menu-icon" aria-hidden="true">☰</span>
+                    <span class="close-icon" aria-hidden="true">✕</span>
+                </button>
+
+                <div class="nav-items" id="nav-items">
+                    <a href="./index.html" class="nav-link nav-link--active">Home</a>
+                    <a href="./card.html" class="nav-link">Card</a>
+                    <a href="./share.html" class="nav-link">Share</a>
+                    <a href="./more.html" class="nav-link">Other</a>
+                    <a href="./extra.html" class="nav-link">Extra</a>
+                </div>
+
+                <button class="notification-button" type="button" aria-label="Notifications" aria-haspopup="true" aria-expanded="false" id="notification-button">
+                    <span class="notification-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                    </span>
+                    <span class="notification-badge" aria-label="2 unread notifications">2</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content" id="main-content">
+        <section class="dashboard" aria-label="MiniPay dashboard">
+            <div class="dashboard-top">
+                <section class="greeting-card">
+                    <div class="profile-avatar" role="img" aria-label="User profile"></div>
+                    <div class="greeting-copy">
+                        <p class="greeting-title" id="greeting-title">Hello! Welcome to MiniPay!</p>
+                        <p class="greeting-subtitle">Your wallet summary and recent activity are below.</p>
+                        <p class="current-time" id="current-time" aria-live="off"></p>
+                    </div>
+                </section>
+
+                <section class="balance-card">
+                    <div class="balance-summary">
+                        <span class="summary-label" id="balance-label">Available balance</span>
+                        <strong class="balance-value" id="balance-value" data-hidden="false">$0.04</strong>
+                        <span class="balance-change" id="balance-change">+$0.02 this week</span>
+                    </div>
+                    <div class="balance-actions">
+                        <button class="currency-switch" type="button" data-currency="USD" aria-label="Switch currency to NGN" id="currency-switch">
+                            <span class="currency-label">USD</span>
+                            <span class="currency-arrow" aria-hidden="true">⇄</span>
+                            <span class="currency-target">NGN</span>
+                        </button>
+                        <button class="balance-toggle" type="button" id="balance-toggle" aria-label="Hide balance" aria-pressed="false">
+                            <span class="toggle-icon show-icon" aria-hidden="true">👁</span>
+                            <span class="toggle-icon hide-icon" aria-hidden="true">◡</span>
+                        </button>
+                        <button class="copy-id" type="button" id="copy-id" aria-label="Copy wallet ID">
+                            <span class="copy-label">Wallet ID</span>
+                            <span class="copy-value" id="wallet-id">MP-8X2K-91Q</span>
+                            <span class="copy-icon" aria-hidden="true">📋</span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="stats-row">
+                <article class="stat-card" aria-label="Total money in">
+                    <span class="stat-icon stat-icon--in" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+                    </span>
+                    <div class="stat-copy">
+                        <span class="stat-label">Total in</span>
+                        <strong class="stat-value" id="stat-in">$0.04</strong>
+                    </div>
+                </article>
+                <article class="stat-card" aria-label="Total money out">
+                    <span class="stat-icon stat-icon--out" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                    </span>
+                    <div class="stat-copy">
+                        <span class="stat-label">Total out</span>
+                        <strong class="stat-value" id="stat-out">$0.00</strong>
+                    </div>
+                </article>
+                <article class="stat-card" aria-label="Total rewards">
+                    <span class="stat-icon stat-icon--reward" aria-hidden="true">🎁</span>
+                    <div class="stat-copy">
+                        <span class="stat-label">Rewards</span>
+                        <strong class="stat-value" id="stat-rewards">$0.04</strong>
+                    </div>
+                </article>
+            </div>
+
+            <div class="dashboard-grid">
+                <section class="action-panel" aria-label="Quick wallet actions">
+                    <h2 class="section-title">Quick actions</h2>
+                    <p class="info-text">Tap an action to preview a flow and keep an eye on currency changes.</p>
+                    <div class="button-row" role="group" aria-label="Wallet actions">
+                        <button type="button" class="action-button action-button--active" data-action="deposit" data-message="Deposit selected. Use the MiniPay app to add funds.">Deposit</button>
+                        <button type="button" class="action-button" data-action="withdraw" data-message="Withdraw selected. Confirm your withdrawal destination in the app.">Withdraw</button>
+                        <button type="button" class="action-button" data-action="send" data-message="Send selected. Use the quick send form to transfer funds.">Send</button>
+                    </div>
+                    <p class="action-message" id="action-message">Deposit is active. Switch to withdraw to simulate a payout.</p>
+                    <button class="primary-cta" type="button" id="open-action-modal">Proceed</button>
+                </section>
+
+                <section class="send-panel" aria-label="Quick send money">
+                    <h2 class="section-title">Quick send</h2>
+                    <form class="send-form" id="send-form" novalidate>
+                        <div class="form-group">
+                            <label for="recipient">Recipient wallet ID</label>
+                            <input type="text" id="recipient" name="recipient" placeholder="MP-XXXX-XXX" required pattern="^MP-[A-Z0-9]{4}-[A-Z0-9]{3}$" autocomplete="off">
+                            <span class="error-message" id="recipient-error">Please enter a valid wallet ID (e.g. MP-8X2K-91Q).</span>
+                        </div>
+                        <div class="form-group form-group--amount">
+                            <label for="amount">Amount</label>
+                            <div class="amount-input">
+                                <span class="amount-currency" id="amount-currency">$</span>
+                                <input type="number" id="amount" name="amount" min="0.01" step="0.01" placeholder="0.00" required>
+                            </div>
+                            <span class="error-message" id="amount-error">Please enter an amount greater than 0.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="note">Note <span class="optional">(optional)</span></label>
+                            <input type="text" id="note" name="note" placeholder="What's this for?" maxlength="60">
+                        </div>
+                        <button type="submit" class="primary-cta" id="send-submit">Send now</button>
+                    </form>
+                </section>
+            </div>
+
+            <section class="activity-card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="section-title">Recent activity</h2>
+                        <p class="small-text">Latest rewards and wallet transaction history.</p>
+                    </div>
+                    <div class="activity-controls">
+                        <div class="search-box">
+                            <label for="transaction-search" class="visually-hidden">Search transactions</label>
+                            <span class="search-icon" aria-hidden="true">🔍</span>
+                            <input type="search" id="transaction-search" placeholder="Search transactions...">
+                        </div>
+                        <div class="select-wrapper">
+                            <label for="transaction-filter" class="visually-hidden">Filter transactions</label>
+                            <select id="transaction-filter">
+                                <option value="all">All types</option>
+                                <option value="reward">Rewards</option>
+                                <option value="bonus">Bonuses</option>
+                                <option value="cashback">Cashback</option>
+                                <option value="send">Sent</option>
+                            </select>
+                        </div>
+                        <button id="view-more-transactions" type="button" class="toggle-button">View more</button>
+                    </div>
+                </div>
+
+                <div class="transaction-list" id="transaction-list" role="feed" aria-busy="false">
+                    <article class="transaction-item" data-type="reward" data-amount="0.01">
+                        <div class="transaction-icon transaction-icon--in" aria-hidden="true">+</div>
+                        <div class="transaction-copy">
+                            <h3>Reward received</h3>
+                            <p><time datetime="2026-06-15">Today</time> · Balance update</p>
+                        </div>
+                        <div class="transaction-value">+$0.01</div>
+                    </article>
+                    <article class="transaction-item" data-type="bonus" data-amount="0.01">
+                        <div class="transaction-icon transaction-icon--in" aria-hidden="true">+</div>
+                        <div class="transaction-copy">
+                            <h3>Referral bonus</h3>
+                            <p>9 hours ago · Shared successfully</p>
+                        </div>
+                        <div class="transaction-value">+$0.01</div>
+                    </article>
+                </div>
+
+                <div class="transaction-list transaction-more hidden" id="transaction-more" role="feed" aria-busy="false">
+                    <article class="transaction-item" data-type="cashback" data-amount="0.01">
+                        <div class="transaction-icon transaction-icon--in" aria-hidden="true">+</div>
+                        <div class="transaction-copy">
+                            <h3>Cashback reward</h3>
+                            <p>Yesterday · Online purchase</p>
+                        </div>
+                        <div class="transaction-value">+$0.01</div>
+                    </article>
+                    <article class="transaction-item" data-type="bonus" data-amount="0.01">
+                        <div class="transaction-icon transaction-icon--in" aria-hidden="true">+</div>
+                        <div class="transaction-copy">
+                            <h3>Bonus payout</h3>
+                            <p>2 days ago · Activity reward</p>
+                        </div>
+                        <div class="transaction-value">+$0.01</div>
+                    </article>
+                </div>
+
+                <p class="empty-state hidden" id="empty-state" role="status">No transactions match your search.</p>
+            </section>
+
+            <section class="promo-banner" aria-label="Promotional offer">
+                <div class="promo-copy">
+                    <h2 class="section-title">Invite friends, earn more</h2>
+                    <p>Share your referral code and earn $0.01 for every friend who joins MiniPay.</p>
+                </div>
+                <button class="promo-button" type="button" id="share-referral">Share referral</button>
+            </section>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year">2026</span> MiniPay. All rights reserved.</p>
+        <nav aria-label="Footer navigation">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Support</a>
+        </nav>
+    </footer>
+
+    <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="modal" id="action-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Deposit funds</h2>
+                <button class="modal-close" type="button" id="modal-close" aria-label="Close modal">✕</button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Use the MiniPay app to add funds to your wallet.</p>
+                <div class="modal-actions">
+                    <button class="secondary-button" type="button" id="modal-cancel">Cancel</button>
+                    <button class="primary-cta" type="button" id="modal-confirm">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>
