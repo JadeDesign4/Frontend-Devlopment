@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MiniPay dashboard with balance switch, quick actions, rewards, and navigation.">
+    <title>MiniPay Dashboard</title>
+    <link rel="shortcut icon" href="../icons/paper-plane-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-bar" aria-label="Primary">
+            <div class="profile-card">
+                <span class="avatar" aria-hidden="true"></span>
+                <div class="profile-copy">
+                    <p class="eyebrow">Welcome back</p>
+                    <h1>MiniPay</h1>
+                </div>
+            </div>
+            <button class="icon-button qr-button" type="button" aria-label="Scan QR code"></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="balance-title">
+            <div class="hero-top">
+                <div class="balance-card">
+                    <p class="card-label">Available balance</p>
+                    <h2 id="balance-title" class="balance-value">$0.21</h2>
+                </div>
+                <div class="currency-panel">
+                    <div class="currency-switch" role="group" aria-label="Currency selector">
+                        <button class="currency-item active" type="button" data-currency="USD">USD</button>
+                        <button class="currency-item" type="button" data-currency="NGN">NGN</button>
+                    </div>
+                    <button class="toggle-button" id="currencyToggle" type="button" aria-pressed="false">
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                        <span class="toggle-label">Switch</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="action-panel" aria-label="Quick actions">
+                <button class="action-card action-card--primary" type="button" data-action="deposit">
+                    <span class="action-icon action-icon--deposit" aria-hidden="true"></span>
+                    <span>Deposit</span>
+                </button>
+                <button class="action-card action-card--secondary" type="button" data-action="withdraw">
+                    <span class="action-icon action-icon--withdraw" aria-hidden="true"></span>
+                    <span>Withdraw</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="hero-callout" aria-labelledby="callout-title">
+            <div class="callout-copy">
+                <h2 id="callout-title">Just one more thing</h2>
+                <p>Make your first deposit and start paying anyone, anywhere, in just a few taps.</p>
+            </div>
+            <button class="primary-button" type="button" id="depositNow">Deposit now</button>
+        </section>
+
+        <section class="activity" aria-labelledby="activity-title">
+            <div class="panel">
+                <div class="recent">
+                    <h2 id="activity-title">Recent activity</h2>
+                </div>
+                <button class="secondary-button" type="button" id="viewMore">View more</button>
+            </div>
+
+            <ul class="rewards-list">
+                <li class="reward-item">
+                    <div class="reward-details">
+                        <div class="reward-badge">??</div>
+                        <div>
+                            <h3>Reward earned</h3>
+                            <p>9hr ago</p>
+                        </div>
+                    </div>
+                    <span class="reward-value">+$0.01</span>
+                </li>
+                <li class="reward-item">
+                    <div class="reward-details">
+                        <div class="reward-badge">??</div>
+                        <div>
+                            <h3>Reward earned</h3>
+                            <p>9hr ago</p>
+                        </div>
+                    </div>
+                    <span class="reward-value">+$0.01</span>
+                </li>
+                <li class="reward-item">
+                    <div class="reward-details">
+                        <div class="reward-badge">??</div>
+                        <div>
+                            <h3>Reward earned</h3>
+                            <p>9hr ago</p>
+                        </div>
+                    </div>
+                    <span class="reward-value">+$0.01</span>
+                </li>
+                <li class="reward-item">
+                    <div class="reward-details">
+                        <div class="reward-badge">??</div>
+                        <div>
+                            <h3>Reward earned</h3>
+                            <p>9hr ago</p>
+                        </div>
+                    </div>
+                    <span class="reward-value">+$0.01</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer-nav" aria-label="Footer navigation">
+        <button class="footer-action active" type="button" data-nav="home" aria-label="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M277.8 8.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S18.8 272 32 272l16 0 0 176c0 35.3 28.7 64 64 64l288 0c35.3 0 64-28.7 64-64l0-176 16 0c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1l-224-208zM200 256a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zM144 432c0-44.2 35.8-80 80-80l64 0c44.2 0 80 35.8 80 80 0 8.8-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16z"/></svg>
+            <span>Home</span>
+        </button>
+        <button class="footer-action" type="button" data-nav="cards" aria-label="Cards">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M512 176C520.8 176 528 183.2 528 192L528 224L112 224L112 192C112 183.2 119.2 176 128 176L512 176zM528 288L528 448C528 456.8 520.8 464 512 464L128 464C119.2 464 112 456.8 112 448L112 288L528 288zM128 128C92.7 128 64 156.7 64 192L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 192C576 156.7 547.3 128 512 128L128 128zM144 408C144 421.3 154.7 432 168 432L216 432C229.3 432 240 421.3 240 408C240 394.7 229.3 384 216 384L168 384C154.7 384 144 394.7 144 408zM288 408C288 421.3 298.7 432 312 432L376 432C389.3 432 400 421.3 400 408C400 394.7 389.3 384 376 384L312 384C298.7 384 288 394.7 288 408z"/></svg>
+            <span>Cards</span>
+        </button>
+        <button class="footer-action" type="button" data-nav="send" aria-label="Send funds">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9L229.2 276.1c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8l496.9-178z"/></svg>
+            <span>Send</span>
+        </button>
+        <button class="footer-action" type="button" data-nav="more" aria-label="More options">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3,3v8h8V3H3z M9,9H5V5h4V9z M3,13v8h8v-8H3z M9,19H5v-4h4V19z M13,3v8h8V3H13z M19,9h-4V5h4V9z M13,13v8h8v-8H13z M19,19h-4v-4h4V19z"/></svg>
+            <span>More</span>
+        </button>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js" defer></script>
+</body>
+</html>

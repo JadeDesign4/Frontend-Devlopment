@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MiniPay Share - Send money to friends, banks, or share a cash link.">
+    <meta name="theme-color" content="#22c55e">
+    <title>MiniPay Share</title>
+    <link rel="shortcut icon" href="./icons/paper-plane-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./share.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="./index.html" class="logo-link" aria-label="MiniPay home">
+                    <img class="logo" src="./img/Minipay-logo/Logo on black.png" alt="MiniPay logo">
+                </a>
+                <button class="mobile-menu-button" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="nav-items">
+                    <span class="menu-icon" aria-hidden="true">☰</span>
+                    <span class="close-icon" aria-hidden="true">✕</span>
+                </button>
+                <div class="nav-items" id="nav-items">
+                    <a href="./index.html" class="nav-link">Home</a>
+                    <a href="./card.html" class="nav-link">Card</a>
+                    <a href="./share.html" class="nav-link nav-link--active">Share</a>
+                    <a href="./more.html" class="nav-link">Other</a>
+                    <a href="./extra.html" class="nav-link">Extra</a>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+                        <span class="light-icon" aria-hidden="true">☀️</span>
+                        <span class="dark-icon" aria-hidden="true">🌙</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content" id="main-content">
+        <section class="share-section">
+            <div class="page-heading">
+                <h1>Send to</h1>
+                <hr>
+                <p class="page-description">Share money with friends, banks, or send a cash link.</p>
+            </div>
+
+            <div class="share-grid">
+                <article class="share-card" data-action="MiniPay Friends selected. Open your MiniPay app to continue.">
+                    <img src="./img/Minipay-logo/App icon.png" alt="MiniPay Friends icon">
+                    <h2>MiniPay Friends</h2>
+                    <p>Instant & free</p>
+                </article>
+                <article class="share-card" data-action="Banks & Mobile Money selected. Use local bank transfer or mobile money options.">
+                    <img src="./img/Minipay-logo/bank.png" alt="Bank icon">
+                    <h2>Banks & Mobile Money</h2>
+                    <p>Close to you & far away</p>
+                </article>
+                <article class="share-card" data-action="https://minipay.to/">
+                    <img src="./img/Minipay-logo/dollar.png" alt="Cash link icon">
+                    <h2>Cash Link</h2>
+                    <p>Just share a link with text</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year">2026</span> MiniPay. All rights reserved.</p>
+        <nav aria-label="Footer navigation">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Support</a>
+        </nav>
+    </footer>
+
+    <script src="./script.js" defer></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0cfab496b1054c1',t:'MTc4MTY3NDI5Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
