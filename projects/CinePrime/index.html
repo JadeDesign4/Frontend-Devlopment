@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinePrime - Discover the Magic of Cinema</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 3L5 7H19L17 3H7Z" fill="currentColor"/>
+                    <path d="M5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7H5Z" fill="currentColor" fill-opacity="0.8"/>
+                    <path d="M10 11L14 14L10 17V11Z" fill="white"/>
+                </svg>
+                <span class="app-name">CinePrime</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="active" data-view="home"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#" data-view="trending"><i class="fa-solid fa-fire"></i> Trending</a>
+                <a href="#" data-view="toprated"><i class="fa-solid fa-star"></i> Top Rated</a>
+                <a href="#" data-view="watchlist"><i class="fa-solid fa-bookmark"></i> Watchlist</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fa-solid fa-sun"></i> <span>Light Mode</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="movieSearch" placeholder="Search for movies, actors, or directors...">
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">U</div>
+                </div>
+            </header>
+
+            <!-- Hero Section -->
+            <section class="hero" id="heroSection">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="trending-tag">#1 Trending Today</span>
+                    <h1 id="heroTitle">Interstellar</h1>
+                    <p id="heroDesc">The future of Earth is riddled with disasters, famines, and droughts. There is only one way to ensure mankind's survival: Interstellar travel.</p>
+                    <div class="hero-btns">
+                        <button class="btn-play"><i class="fa-solid fa-play"></i> Watch Trailer</button>
+                        <button class="btn-info"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Movie Grid -->
+            <section class="movies-section">
+                <div class="section-header">
+                    <h2 id="sectionTitle">Popular Movies</h2>
+                    <div class="view-options">
+                        <button class="active"><i class="fa-solid fa-grip"></i></button>
+                        <button><i class="fa-solid fa-list"></i></button>
+                    </div>
+                </div>
+                <div class="movie-grid" id="movieGrid">
+                    <!-- Movies will be injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Movie Detail Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a20cf29218b70255',t:'MTc4NTAwMTIwMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
+</body>
+</html>
