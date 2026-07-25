@@ -1,0 +1,137 @@
+/* -------------------------------------------------------------------------- */
+/*  Extra / Creator page styles                                               */
+/* -------------------------------------------------------------------------- */
+
+.creator-grid {
+    display: grid;
+    grid-template-columns: 160px minmax(340px, 2fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.social-panel,
+.profile-panel {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+}
+
+.panel-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.social-links {
+    display: grid;
+    gap: 1rem;
+    place-items: center;
+}
+
+.social-links a {
+    display: inline-flex;
+    width: 72px;
+    height: 72px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+    transform: translateY(-5px) scale(1.05);
+    background: var(--primary-light);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.social-links img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.profile-panel {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) 2fr;
+    gap: 2rem;
+    place-items: center;
+    text-align: left;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent);
+}
+
+.profile-copy {
+    display: grid;
+    gap: 1rem;
+}
+
+.profile-copy p {
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .creator-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .profile-panel {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .profile-copy {
+        text-align: left;
+    }
+}
+
+@media (max-width: 640px) {
+    .social-panel,
+    .profile-panel {
+        padding: 1.25rem;
+    }
+
+    .social-links a {
+        width: 60px;
+        height: 60px;
+    }
+
+    .social-links img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .profile-image {
+        max-width: 200px;
+    }
+
+    .profile-copy p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .social-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

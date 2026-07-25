@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MiniPay Share - Send money to friends, banks, or share a cash link.">
+    <meta name="theme-color" content="#035824">
+    <title>MiniPay Share</title>
+    <link rel="shortcut icon" href="./icons/paper-plane-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./share.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="./index.html" class="logo-link" aria-label="MiniPay home">
+                    <img class="logo" src="./img/Minipay-logo/Logo on black.png" alt="MiniPay logo">
+                </a>
+                <button class="mobile-menu-button" type="button" aria-expanded="false" aria-label="Open navigation menu" aria-controls="nav-items">
+                    <span class="menu-icon" aria-hidden="true">☰</span>
+                    <span class="close-icon" aria-hidden="true">✕</span>
+                </button>
+                <div class="nav-items" id="nav-items">
+                    <a href="./index.html" class="nav-link">Home</a>
+                    <a href="./card.html" class="nav-link">Card</a>
+                    <a href="./share.html" class="nav-link nav-link--active">Share</a>
+                    <a href="./more.html" class="nav-link">Other</a>
+                    <a href="./extra.html" class="nav-link">Extra</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content" id="main-content">
+        <section class="share-section">
+            <div class="page-heading">
+                <h1>Send to</h1>
+                <hr>
+                <p class="page-description">Share money with friends, banks, or send a cash link.</p>
+            </div>
+
+            <div class="share-grid">
+                <article class="share-card" data-action="MiniPay Friends selected. Open your MiniPay app to continue.">
+                    <img src="./img/Minipay-logo/App icon.png" alt="MiniPay Friends icon">
+                    <h2>MiniPay Friends</h2>
+                    <p>Instant & free</p>
+                </article>
+                <article class="share-card" data-action="Banks & Mobile Money selected. Use local bank transfer or mobile money options.">
+                    <img src="./img/Minipay-logo/bank.png" alt="Bank icon">
+                    <h2>Banks & Mobile Money</h2>
+                    <p>Close to you & far away</p>
+                </article>
+                <article class="share-card" data-action="https://minipay.to/">
+                    <img src="./img/Minipay-logo/dollar.png" alt="Cash link icon">
+                    <h2>Cash Link</h2>
+                    <p>Just share a link with text</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year">2026</span> MiniPay. All rights reserved.</p>
+        <nav aria-label="Footer navigation">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Support</a>
+        </nav>
+    </footer>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>

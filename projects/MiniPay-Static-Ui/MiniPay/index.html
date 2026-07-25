@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniPay Dashboard</title>
+    <link rel="shortcut icon" href="./icons/paper-plane-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+</head
+    <!-- Header and main navigation -->
+    <header class="site-header">
+        <div class="nav-container">
+            <nav class="site-nav">
+                <a href="./index.html" class="logo-link">
+                    <img class="logo" src="./img/Minipay-logo/Logo on black.png" alt="MiniPay logo">
+                </a>
+                <button class="mobile-menu-button" aria-expanded="false" aria-label="Open navigation menu">☰</button>
+                <div class="nav-items">
+                    <a href="./index.html" class="nav-link nav-link--active">Home</a>
+                    <a href="./card.html" class="nav-link">Card</a>
+                    <a href="./share.html" class="nav-link">Share</a>
+                    <a href="./more.html" class="nav-link">Other</a>
+                    <a href="./extra.html" class="nav-link">Extra</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard content wrapper -->
+    <main class="page-content">
+        <section class="dashboard">
+            <div class="dashboard-top">
+                <section class="greeting-card">
+                    <div class="profile-avatar"></div>
+                    <div class="greeting-copy">
+                        <p class="greeting-title">Hello! Welcome to MiniPay!</p>
+                        <p class="greeting-subtitle">Your wallet summary and recent activity are below.</p>
+                    </div>
+                </section>
+
+                <section class="balance-card">
+                    <div class="balance-summary">
+                        <span class="summary-label">Currency</span>
+                        <strong class="balance-value">$0.04</strong>
+                    </div>
+                    <button class="currency-switch" type="button" data-currency="USD" aria-label="Switch currency">
+                        <span class="currency-label">USD</span>
+                        <span class="currency-target">NGN</span>
+                    </button>
+                </section>
+            </div>
+
+            <section class="action-panel" aria-label="Quick wallet actions">
+                <p class="info-text">Tap an action to preview a flow and keep an eye on currency changes.</p>
+                <div class="button-row">
+                    <button type="button" class="action-button action-button--active" data-message="Deposit selected. Use the MiniPay app to add funds.">Deposit</button>
+                    <button type="button" class="action-button" data-message="Withdraw selected. Confirm your withdrawal destination in the app.">Withdraw</button>
+                </div>
+                <p class="action-message">Deposit is active. Switch to withdraw to simulate a payout.</p>
+            </section>
+
+            <section class="activity-card">
+                <div class="card-header">
+                    <div>
+                        <h2>Recent activity</h2>
+                        <p class="small-text">Latest rewards and wallet transaction history.</p>
+                    </div>
+                    <button id="view-more-transactions" type="button" class="toggle-button">View more</button>
+                </div>
+
+                <div class="transaction-list">
+                    <article class="transaction-item">
+                        <div class="transaction-icon">+</div>
+                        <div class="transaction-copy">
+                            <h3>Reward received</h3>
+                            <p>Today · Balance update</p>
+                        </div>
+                        <div class="transaction-value">+$0.01</div>
+                    </article>
+                    <article class="transaction-item">
+                        <div class="transaction-icon">+</div>
+                        <div class="transaction-copy">
+                            <h3>Referral bonus</h3>
+                            <p>9 hours ago · Shared successfully</p>
+                        </div>
+                        <div class="transaction-value">+$0.01</div>
+                    </article>
+                </div>
+
+                <div class="transaction-list transaction-more hidden">
+                    <article class="transaction-item">
+                        <div class="transaction-icon">+</div>
+                        <div class="transaction-copy">
+                            <h3>Cashback reward</h3>
+                            <p>Yesterday · Online purchase</p>
+                        </div>
+                        <div class="transaction-value">+$0.01</div>
+                    </article>
+                    <article class="transaction-item">
+                        <div class="transaction-icon">+</div>
+                        <div class="transaction-copy">
+                            <h3>Bonus payout</h3>
+                            <p>2 days ago · Activity reward</p>
+                        </div>
+                        <div class="transaction-value">+$0.01</div>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>

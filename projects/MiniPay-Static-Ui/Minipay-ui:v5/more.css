@@ -1,0 +1,62 @@
+/* -------------------------------------------------------------------------- */
+/*  More / Apps page styles                                                   */
+/* -------------------------------------------------------------------------- */
+
+.app-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.crypto-card {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  cursor: pointer;
+}
+
+.crypto-card:hover,
+.crypto-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: rgba(34, 197, 94, 0.3);
+  box-shadow: var(--shadow);
+  background: var(--surface-soft);
+  outline: none;
+}
+
+.crypto-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.crypto-card h2 {
+  margin-top: 0.5rem;
+  font-size: 1.15rem;
+  color: var(--text-dark);
+}
+
+.crypto-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}

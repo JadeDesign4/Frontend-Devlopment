@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniPay Share</title>
+    <link rel="shortcut icon" href="./icons/paper-plane-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./share.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="./index.html" class="logo-link">
+                <img class="logo" src="./img/Minipay-logo/Logo on black.png" alt="MiniPay logo">
+            </a>
+            <button class="mobile-menu-button" aria-expanded="false" aria-label="Open navigation menu">☰</button>
+            <div class="nav-items">
+                <a href="./index.html" class="nav-link">Home</a>
+                <a href="./card.html" class="nav-link">Card</a>
+                <a href="./share.html" class="nav-link nav-link--active">Share</a>
+                <a href="./more.html" class="nav-link">Other</a>
+                <a href="./extra.html" class="nav-link">Extra</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="share-section">
+            <div class="page-heading">
+                <h1>Send to</h1>
+                <hr>
+                <p class="page-description">Share money with friends, banks, or send a cash link.</p>
+            </div>
+
+            <div class="share-grid">
+                <article class="share-card" data-action="MiniPay Friends selected. Open your MiniPay app to continue.">
+                    <img src="./img/Minipay-logo/App icon.png" alt="MiniPay Friends icon">
+                    <h2>MiniPay Friends</h2>
+                    <p>Instant & free</p>
+                </article>
+                <article class="share-card" data-action="Banks & Mobile Money selected. Use local bank transfer or mobile money options.">
+                    <img src="./img/Minipay-logo/bank.png" alt="Bank icon">
+                    <h2>Banks & Mobile Money</h2>
+                    <p>Close to you & far away</p>
+                </article>
+                <article class="share-card" data-action="https://minipay.to/">
+                    <img src="./img/Minipay-logo/dollar.png" alt="Cash link icon">
+                    <h2>Cash Link</h2>
+                    <p>Just share a link with text</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

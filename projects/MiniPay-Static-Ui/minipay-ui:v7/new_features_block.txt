@@ -1,0 +1,308 @@
+    /* ---------------------------------------------------------------------- */
+    /*  Modern crypto-wallet features                                         */
+    /* ---------------------------------------------------------------------- */
+
+    /* Network switch */
+    const networkSwitch = $('#network-switch');
+    const networkValue = $('#network-value');
+    const securityNetwork = $('#security-network');
+    const networkCycle = $('#network-cycle');
+    const networks = ['Celo', 'Ethereum', 'Base', 'Arbitrum'];
+    let currentNetwork = storage.get('minipay-network', 'Celo');
+
+    function updateNetworkUI(network) {
+        if (networkValue) networkValue.textContent = network;
+        if (securityNetwork) securityNetwork.textContent = network;
+        storage.set('minipay-network', network);
+    }
+
+    updateNetworkUI(currentNetwork);
+
+    function cycleNetwork() {
+        const idx = networks.indexOf(currentNetwork);
+        currentNetwork = networks[(idx + 1) % networks.length];
+        updateNetworkUI(currentNetwork);
+        showToast('Network switched to ' + currentNetwork, '🌐', 2500);
+    }
+
+    networkSwitch?.addEventListener('click', cycleNetwork);
+    networkCycle?.addEventListener('click', cycleNetwork);
+
+    /* Biometric toggle */
+    const biometricToggle = $('#biometric-toggle');
+    let isBiometric = storage.get('minipay-biometric', false);
+
+    function updateBiometricUI(enabled) {
+        if (biometricToggle) {
+            biometricToggle.setAttribute('aria-pressed', String(enabled));
+            biometricToggle.setAttribute('aria-label', enabled ? 'Disable biometric unlock' : 'Enable biometric unlock');
+        }
+        storage.set('minipay-biometric', enabled);
+    }
+
+    updateBiometricUI(isBiometric);
+
+    biometricToggle?.addEventListener('click', () => {
+        isBiometric = !isBiometric;
+        updateBiometricUI(isBiometric);
+        showToast(isBiometric ? 'Biometric unlock enabled' : 'Biometric unlock disabled', '🔐', 2500);
+    });
+
+    /* Backup seed phrase */
+    $('#backup-seed')?.addEventListener('click', () => {
+        showToast('Seed phrase backup flow would open in the app', '🔑', 3000);
+    });
+
+    /* Notifications dropdown */
+    const notificationButton = $('#notification-button');
+    const notificationDropdown = $('#notification-dropdown');
+
+    function toggleNotifications(show) {
+        if (!notificationDropdown) return;
+        notificationDropdown.classList.toggle('hidden', !show);
+        notificationButton?.setAttribute('aria-expanded', String(show));
+    }
+
+    if (notificationButton && notificationDropdown) {
+        notificationButton.addEventListener('click', () => {
+            const badge = notificationButton.querySelector('.notification-badge');
+            if (badge) badge.remove();
+            const isHidden = notificationDropdown.classList.contains('hidden');
+            toggleNotifications(isHidden);
+            if (isHidden) {
+                notificationDropdown.querySelectorAll('.notification-item.unread').forEach(item => item.classList.remove('unread'));
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!notificationButton.contains(e.target) && !notificationDropdown.contains(e.target)) {
+                toggleNotifications(false);
+            }
+        });
+    }
+
+    /* Receive modal */
+    const receiveModal = $('#receive-modal');
+    const receiveModalBackdrop = $('#receive-modal-backdrop');
+    const receiveModalClose = $('#receive-modal-close');
+    const receiveModalDone = $('#receive-modal-done');
+    const receiveWalletId = $('#receive-wallet-id');
+    const qrCode = $('#qr-code');
+
+    function generateQR(text) {
+        const size = 25;
+        const cell = 7;
+        let rects = '';
+        for (let y = 0; y < size; y++) {
+            for (let x = 0; x < size; x++) {
+                const hash = Math.sin((x + 1) * (y + 7) * text.length) * 10000;
+                if ((hash - Math.floor(hash)) > 0.45) {
+                    rects += '<rect x=\'' + (x * cell) + '\' y=\'' + (y * cell) + '\' width=\'' + cell + '\' height=\'' + cell + '\' fill=\'#0f1214\'/>';
+                }
+            }
+        }
+        return '<svg viewBox=\'0 0 ' + (size * cell) + ' ' + (size * cell) + '\' xmlns=\'http://www.w3.org/2000/svg\' aria-label=\'QR code\'>' + rects + '</svg>';
+    }
+
+    function openReceiveModal() {
+        if (!receiveModal) return;
+        const walletId = $('#wallet-id')?.textContent || 'MP-8X2K-91Q';
+        if (receiveWalletId) receiveWalletId.textContent = walletId;
+        if (qrCode) qrCode.innerHTML = generateQR(walletId);
+        receiveModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeReceiveModal() {
+        if (!receiveModal) return;
+        receiveModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (openActionModal) openActionModal.focus();
+    }
+
+    [receiveModalBackdrop, receiveModalClose, receiveModalDone].forEach(el => {
+        el?.addEventListener('click', closeReceiveModal);
+    });
+
+    $('#copy-receive-id')?.addEventListener('click', async () => {
+        const id = receiveWalletId?.textContent;
+        if (!id) return;
+        try {
+            await navigator.clipboard.writeText(id);
+            showToast('Wallet address ' + id + ' copied', '📋', 3000);
+        } catch {
+            showToast('Unable to copy wallet address', '⚠️', 3000);
+        }
+    });
+
+    /* Swap modal */
+    const swapModal = $('#swap-modal');
+    const swapModalBackdrop = $('#swap-modal-backdrop');
+    const swapModalClose = $('#swap-modal-close');
+    const swapCancel = $('#swap-cancel');
+    const swapConfirm = $('#swap-confirm');
+    const swapFrom = $('#swap-from');
+    const swapTo = $('#swap-to');
+    const swapAmount = $('#swap-amount');
+    const swapAmountError = $('#swap-amount-error');
+
+    function openSwapModal() {
+        if (!swapModal) return;
+        swapAmount.value = '';
+        swapAmountError.style.display = 'none';
+        swapModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSwapModal() {
+        if (!swapModal) return;
+        swapModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (openActionModal) openActionModal.focus();
+    }
+
+    [swapModalBackdrop, swapModalClose, swapCancel].forEach(el => {
+        el?.addEventListener('click', closeSwapModal);
+    });
+
+    swapConfirm?.addEventListener('click', () => {
+        const amount = parseFloat(swapAmount?.value);
+        if (!amount || amount <= 0) {
+            swapAmountError.style.display = 'block';
+            return;
+        }
+        swapAmountError.style.display = 'none';
+        const from = swapFrom?.value || 'cUSD';
+        const to = swapTo?.value || 'CELO';
+        showToast('Swap preview: ' + amount + ' ' + from + ' → ' + to + ' (demo)', '🔄', 3000);
+        closeSwapModal();
+    });
+
+    /* Address book */
+    const contactList = $('#contact-list');
+    const recipientInput = $('#recipient');
+    const contacts = [
+        { name: 'Alice', id: 'MP-ALIC-001', color: '#22c55e' },
+        { name: 'Bob', id: 'MP-BOB2-002', color: '#3b82f6' },
+        { name: 'Charlie', id: 'MP-CHAR-003', color: '#a855f7' },
+        { name: 'Diana', id: 'MP-DIAN-004', color: '#f59e0b' }
+    ];
+
+    function renderContacts() {
+        if (!contactList) return;
+        contactList.innerHTML = contacts.map(contact => `
+            <button type='button' class='contact-chip' data-wallet-id='${escapeHtml(contact.id)}' aria-label='Send to ${escapeHtml(contact.name)}'>
+                <span class='contact-avatar' style='background:${contact.color}20;color:${contact.color}'>${contact.name[0]}</span>
+                <span>${escapeHtml(contact.name)}</span>
+            </button>
+        `).join('');
+
+        $$('.contact-chip', contactList).forEach(chip => {
+            chip.addEventListener('click', () => {
+                if (recipientInput) {
+                    recipientInput.value = chip.dataset.walletId;
+                    showFieldError(recipientInput, !validateWalletId(recipientInput.value));
+                }
+                showToast('Recipient set to ' + chip.textContent.trim(), '👤', 2000);
+            });
+        });
+    }
+
+    renderContacts();
+
+    /* Portfolio */
+    const tokenList = $('#token-list');
+    const portfolioValue = $('#portfolio-value');
+    const portfolioChange = $('#portfolio-change');
+
+    const tokens = [
+        { symbol: 'cUSD', name: 'Celo Dollar', balance: 0.04, price: 1.00, change: 0.0 },
+        { symbol: 'CELO', name: 'Celo', balance: 0.05, price: 0.20, change: 2.4 },
+        { symbol: 'USDC', name: 'USD Coin', balance: 0.00, price: 1.00, change: 0.0 },
+        { symbol: 'ETH', name: 'Ethereum', balance: 0.00001, price: 3000.00, change: -1.2 }
+    ];
+
+    function generateSparkline(change) {
+        const points = 12;
+        const width = 200;
+        const height = 40;
+        const step = width / (points - 1);
+        const trend = change >= 0 ? 1 : -1;
+        let path = '';
+        const yValues = [];
+        for (let i = 0; i < points; i++) {
+            const noise = Math.random() * 20 - 10;
+            const y = height / 2 - (trend * (i / points) * 18) + noise;
+            yValues.push(y);
+            if (i === 0) {
+                path += 'M ' + (i * step) + ' ' + y;
+            } else {
+                path += ' L ' + (i * step) + ' ' + y;
+            }
+        }
+        const areaPath = path + ' L ' + width + ' ' + height + ' L 0 ' + height + ' Z';
+        const strokeColor = trend >= 0 ? '#22c55e' : '#ef4444';
+        return '<svg class=\'sparkline\' viewBox=\'0 0 ' + width + ' ' + height + '\' preserveAspectRatio=\'none\' xmlns=\'http://www.w3.org/2000/svg\'>\n            <path d=\'' + areaPath + '\' fill=\'' + strokeColor + '\' opacity=\'0.12\'/>\n            <path d=\'' + path + '\' fill=\'none\' stroke=\'' + strokeColor + '\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/>\n        </svg>';
+    }
+
+    function renderPortfolio() {
+        if (!tokenList) return;
+        const currency = currencySwitch?.dataset.currency || 'USD';
+        const total = tokens.reduce((sum, t) => sum + t.balance * t.price, 0);
+        const totalChange = tokens.reduce((sum, t) => sum + (t.balance * t.price / Math.max(total, 0.01)) * t.change, 0);
+
+        if (portfolioValue) portfolioValue.textContent = formatCurrency(total, currency);
+        if (portfolioChange) {
+            portfolioChange.textContent = (totalChange >= 0 ? '+' : '') + totalChange.toFixed(2) + '%';
+            portfolioChange.className = 'portfolio-change ' + (totalChange >= 0 ? 'up' : 'down');
+        }
+
+        tokenList.innerHTML = tokens.map(token => {
+            const value = token.balance * token.price;
+            const changeClass = token.change >= 0 ? 'up' : 'down';
+            return `
+                <article class='token-card'>
+                    <div class='token-meta'>
+                        <div class='token-name'>
+                            <span class='token-symbol'>${escapeHtml(token.symbol)}</span>
+                            <span class='token-full'>${escapeHtml(token.name)}</span>
+                        </div>
+                        <div class='token-balance'>
+                            <span class='token-amount'>${escapeHtml(token.balance.toLocaleString('en-US', { maximumFractionDigits: 6 }))}</span>
+                            <span class='token-value'>${formatCurrency(value, currency)}</span>
+                        </div>
+                    </div>
+                    ${generateSparkline(token.change)}
+                    <div class='token-change ${changeClass}'>${token.change >= 0 ? '+' : ''}${token.change.toFixed(1)}% (24h)</div>
+                </article>
+            `;
+        }).join('');
+    }
+
+    renderPortfolio();
+
+    currencySwitch?.addEventListener('click', () => {
+        setTimeout(renderPortfolio, 0);
+    });
+
+    /* Staking */
+    $('#stake-cta')?.addEventListener('click', () => {
+        showToast('Staking flow: deposit cUSD to earn 5.2% APY (demo)', '🌱', 3000);
+    });
+
+    /* ---------------------------------------------------------------------- */
+    /*  'Create my virtual card' button (card page)                           */
+    /* ---------------------------------------------------------------------- */
+    const createCardButton = $('#create-card-button');
+    if (createCardButton) {
+        createCardButton.addEventListener('click', () => {
+            const originalText = createCardButton.textContent;
+            createCardButton.disabled = true;
+            createCardButton.textContent = 'Creating card...';
+            setTimeout(() => {
+                createCardButton.disabled = false;
+                createCardButton.textContent = originalText;
+                showToast('Your virtual card has been created!', '💳', 4000);
+            }, 1500);
+        });
+    }

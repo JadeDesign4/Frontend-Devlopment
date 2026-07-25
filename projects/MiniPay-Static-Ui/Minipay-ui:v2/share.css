@@ -1,0 +1,75 @@
+/* Share page styles */
+
+.page-content {
+    max-width: 1180px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 1rem;
+}
+
+hr {
+    width: if(
+        media(width <= 1024px): 60%;
+        media(width <= 768px): 50%;
+        else: 35%;
+    );
+}
+
+.page-heading h1 {
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.page-description {
+    max-width: 620px;
+    color: #606060;
+    margin-bottom: 3rem;
+}
+
+.share-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.share-card {
+    display: grid;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.5rem;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(3, 74, 11, 0.06);
+    transition: transform .4s ease, border-color .4s ease;
+    cursor: pointer;
+    line-height: .2rem;
+}
+
+.share-card:hover {
+    transform: translateY(-6px);
+    border: 2px solid rgba(3, 120, 28, 0.39);
+}
+
+.share-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.share-card h2 {
+    margin-top: 0.25rem;
+    font-size: 1.15rem;
+}
+
+.share-card p {
+    color: #606060;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+    .page-content {
+        padding: 0 0.85rem;
+    }
+}

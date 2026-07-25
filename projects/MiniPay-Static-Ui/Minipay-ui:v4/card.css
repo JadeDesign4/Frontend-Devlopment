@@ -1,0 +1,126 @@
+/* -------------------------------------------------------------------------- */
+/*  Card page styles                                                          */
+/* -------------------------------------------------------------------------- */
+
+.hero-section {
+    display: grid;
+    gap: 2rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(300px, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.card-preview {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow-green);
+    background: var(--primary-dark);
+}
+
+.virtual-card-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-logo {
+    position: absolute;
+    right: 18%;
+    top: 10%;
+    width: 100px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.feature-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.feature-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-radius: 24px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    border: 2px solid transparent;
+}
+
+.feature-item:hover,
+.feature-item:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--border);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.icon-wrapper {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--black);
+    color: #fff;
+    flex-shrink: 0;
+    transition: transform var(--transition), background var(--transition);
+}
+
+.feature-item:hover .icon-wrapper {
+    transform: scale(1.05);
+    background: var(--primary);
+}
+
+.feature-item h2 {
+    margin-bottom: 0.25rem;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+}
+
+.feature-item p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-preview {
+        max-width: 420px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .card-logo {
+        width: 80px;
+    }
+}
+
+@media (max-width: 640px) {
+    .feature-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .primary-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .card-logo {
+        width: 70px;
+    }
+}
