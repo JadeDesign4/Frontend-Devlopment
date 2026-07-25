@@ -1,5 +1,5 @@
 // Configuration
-const API_KEY = ''; // ADD YOUR TMDB API KEY HERE
+const API_KEY = 'b50a8818e00238f94f7a9bc3aedd6344'; // ADD YOUR TMDB API KEY HERE
 const IMG_PATH = 'https://image.tmdb.org/t/p/w500';
 const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie?api_key=' + API_KEY + '&query=';
 const TRENDING_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=' + API_KEY;
