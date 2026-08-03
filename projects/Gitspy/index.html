@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitSpy - Explore GitHub Profiles</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="logo-area">
+                    <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.477 2 2 6.477 2 12C2 16.418 4.865 20.166 8.839 21.489C9.339 21.581 9.522 21.272 9.522 21.007C9.522 20.768 9.513 20.136 9.508 19.299C6.726 19.904 6.139 17.957 5.919 17.339C5.793 17.019 5.247 16.027 4.767 15.759C4.367 15.543 3.794 15.009 4.758 14.997C5.66 14.985 6.303 15.839 6.516 16.179C7.545 17.91 9.186 17.409 9.837 17.117C9.941 16.371 10.239 15.871 10.569 15.582C8.349 15.332 6.027 14.473 6.027 10.648C6.027 9.557 6.417 8.659 7.057 7.955C6.954 7.702 6.611 6.682 7.155 5.312C7.155 5.312 7.994 5.044 9.907 6.336C10.705 6.114 11.554 6.003 12.402 6C13.25 6.003 14.099 6.114 14.897 6.336C16.81 5.044 17.649 5.312 17.649 5.312C18.193 6.682 17.85 7.702 17.747 7.955C18.387 8.659 18.777 9.557 18.777 10.648C18.777 14.482 16.446 15.329 14.221 15.579C14.58 15.888 14.899 16.49 14.899 17.411C14.899 18.73 14.887 19.792 14.887 20.113C14.887 20.378 15.068 20.69 15.575 20.592C19.544 19.266 22.402 15.518 22.402 12.1C22.402 6.477 17.925 2 12.402 2H12Z" fill="currentColor"/>
+                    </svg>
+                    <span class="app-name">GitSpy</span>
+                </div>
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="userInput" placeholder="Search GitHub username..." autocomplete="off">
+                    <button id="searchBtn">Search</button>
+                </div>
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="container main-content">
+            <!-- Profile Overview -->
+            <section id="profileSection" class="profile-card hidden">
+                <div class="profile-header">
+                    <img id="avatar" src="" alt="Avatar">
+                    <div class="profile-info">
+                        <h2 id="name">Name</h2>
+                        <a id="username" href="#" target="_blank">@username</a>
+                        <p id="bio">User bio goes here...</p>
+                        <div class="meta-info">
+                            <span><i class="fa-solid fa-location-dot"></i> <span id="location">Location</span></span>
+                            <span><i class="fa-solid fa-link"></i> <a id="blog" href="#" target="_blank">Website</a></span>
+                            <span><i class="fa-brands fa-twitter"></i> <a id="twitter" href="#" target="_blank">Twitter</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-label">Repos</span>
+                        <span class="stat-val" id="reposCount">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Followers</span>
+                        <span class="stat-val" id="followersCount">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Following</span>
+                        <span class="stat-val" id="followingCount">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Repositories List -->
+            <section id="repoSection" class="repo-section hidden">
+                <h3>Public Repositories</h3>
+                <div id="repoList" class="repo-grid">
+                    <!-- Repos injected here -->
+                </div>
+            </section>
+
+            <!-- Loading & Error States -->
+            <div id="loader" class="loader hidden"></div>
+            <div id="errorState" class="error-msg hidden">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p>User not found. Try another username.</p>
+            </div>
+            <div id="emptyState" class="empty-state">
+                <i class="fa-brands fa-github"></i>
+                <h2>Search for a GitHub User</h2>
+                <p>Explore profiles, repositories, and statistics in real-time.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a20d17fdeb0b6ffa',t:'MTc4NTAwMjczNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
+</body>
+</html>

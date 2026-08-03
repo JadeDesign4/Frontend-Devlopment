@@ -1277,8 +1277,8 @@ html[data-theme="dark"] .logo {
   border: none;
   border-radius: 999px;
   padding: 0.95rem 1.6rem;
-  background: #e2e5e6;
-  color: var(--text);
+  background: #0d1011;
+  color: #ffffff;
   font-weight: 800;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassGuard - Secure Vault</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="5" y="11" width="14" height="10" rx="2" stroke="white" stroke-width="2"/>
+                    <path d="M7 11V7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7V11" stroke="white" stroke-width="2"/>
+                    <circle cx="12" cy="16" r="1" fill="white"/>
+                </svg>
+                <span class="app-name">PassGuard</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="active"><i class="fa-solid fa-vault"></i> All Items</a>
+                <a href="#"><i class="fa-solid fa-star"></i> Favorites</a>
+                <a href="#"><i class="fa-solid fa-trash"></i> Trash</a>
+                <div class="nav-divider"></div>
+                <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Search for a service...">
+                </div>
+                <button class="btn-primary" id="addBtn">
+                    <i class="fa-solid fa-plus"></i> New Password
+                </button>
+            </header>
+
+            <div class="vault-header">
+                <h1>All Passwords</h1>
+                <span id="itemCount">0 Items</span>
+            </div>
+
+            <div class="password-grid" id="passwordGrid">
+                <!-- Cards will be injected here by JS -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Adding New Password -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Add New Password</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label for="serviceName">Service Name</label>
+                    <input type="text" id="serviceName" placeholder="e.g. Netflix, GitHub" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username / Email</label>
+                    <input type="text" id="username" placeholder="user@example.com" required>
+                </div>
+                <div class="form-group password-field">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" required>
+                        <button type="button" id="togglePass" class="icon-btn"><i class="fa-solid fa-eye"></i></button>
+                    </div>
+                </div>
+                <div class="strength-meter">
+                    <div class="strength-bar" id="strengthBar"></div>
+                    <span id="strengthText">Enter password</span>
+                </div>
+                <button type="submit" class="btn-submit">Secure Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a20cb5374a9a0181',t:'MTc4NDk5ODY5MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background: radial-gradient(circle at top, rgba(18, 105, 50, 0.2), transparent 35%), linear-gradient(180deg, #0f1214 0%, #111419 100%);
+    color: #f9f9f97e;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    z-index: 10;
+}
+
+/* Virtual Card & Half globe */
+.virtual-card-container {
+    display: flex;
+    justify-content: center;
+    margin: 5rem auto;
+    max-width: 600px;
+    backdrop-filter: blur(30px);
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+}
+
+.virtual-card {
+    width: 700px;
+    height: 400px;
+    box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+}
+
+.virtual-card-details{
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+}
+
+.minipay-txt{
+    line-height: .8;
+}
+
+
+.two{
+    transform: translateX(-65%);
+}
+
+/* Features Coming Soon */
+.waitlist-container {
+ display: flex;
+ flex-direction: column;
+ padding: 1rem;
+ margin: 5rem auto;
+ position: relative;
+ left: 25%;
+}
+
+.waitlist-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.waitlist-item {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.waitlist-item .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    background-color: #525157;
+    border-radius: 80px
+}
+
+.waitlist-item .img svg {
+    height: 35px;
+    width: 35   px;
+}
+
+.waitlist-item p {
+    font-size: 1.5rem;
+}
+
+
+
+button {
+    cursor: pointer;
+    background: #f5f5f5;
+    border-radius: 50px;
+    padding: 1.2rem;
+    margin: 0rem 5rem 5rem 35rem;
+    width: 30%;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Footer nav */
+.footer-nav {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: #525157;
+    border-radius: 25px;
+    align-items: center;
+    max-width: 1000px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.footer {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.home svg {
+    height: 35px;
+    width: 35px;
+}
+
+.card svg {
+    height: 42px;
+    width: 50px;
+}
+
+.send svg {
+    height: 35px;
+    width: 35px;
+}
+
+.grid-icon svg {
+    height: 35px;
+    width: 35px;
+}

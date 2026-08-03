@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftCart - Shop Your Favorites</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo-area">
+                    <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 3H5L5.4 5M5.4 5H21L19 13H7M5.4 5L7 13M7 13L4.707 15.293C4.077 15.923 4.523 17 5.414 17H19M17 17C15.895 17 15 17.895 15 19C15 20.105 15.895 21 17 21C18.105 21 19 20.105 19 19C19 17.895 18.105 17 17 17ZM9 17C7.895 17 7 17.895 7 19C7 20.105 7.895 21 9 21C10.105 21 11 20.105 11 19C11 17.895 10.105 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 5L10 8L13 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="app-name">SwiftCart</span>
+                </div>
+                
+                <div class="nav-right">
+                    <button id="themeToggle" class="icon-btn"><i class="fa-solid fa-moon"></i></button>
+                    <div class="cart-trigger" id="cartBtn">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Categories & Hero -->
+        <header class="hero">
+            <div class="container">
+                <div class="category-filter" id="categoryFilter">
+                    <button class="cat-btn active" data-category="all">All Products</button>
+                    <!-- Categories injected by JS -->
+                </div>
+            </div>
+        </header>
+
+        <!-- Product Grid -->
+        <main class="container main-content">
+            <div id="loader" class="loader"></div>
+            <div id="productGrid" class="product-grid">
+                <!-- Products injected by JS -->
+            </div>
+        </main>
+
+        <!-- Cart Sidebar -->
+        <div class="cart-overlay" id="cartOverlay">
+            <div class="cart-drawer">
+                <div class="cart-header">
+                    <h2>Your Cart</h2>
+                    <button class="close-btn" id="closeCart">&times;</button>
+                </div>
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items injected by JS -->
+                </div>
+                <div class="cart-footer">
+                    <div class="total-row">
+                        <span>Total:</span>
+                        <span id="cartTotal">$0.00</span>
+                    </div>
+                    <button class="btn-checkout" onclick="alert('Proceeding to checkout...')">Checkout Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Toast -->
+        <div id="toast" class="toast">Item added to cart!</div>
+    </div>
+
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a20d1d41fb596f0d',t:'MTc4NTAwMjk1MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
+</body>
+</html>

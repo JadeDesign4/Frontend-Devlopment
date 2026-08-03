@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindQuest - Test Your Knowledge</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background decorative elements -->
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+
+        <header class="app-header">
+            <div class="logo-area">
+                <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15848 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 17H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="app-name">MindQuest</span>
+            </div>
+            <div class="header-right">
+                <button id="themeToggle" class="theme-btn"><i class="fa-solid fa-moon"></i></button>
+                <button id="leaderboardBtn" class="icon-btn"><i class="fa-solid fa-trophy"></i></button>
+            </div>
+        </header>
+
+        <main class="quiz-container">
+            <!-- Start Screen -->
+            <div id="startScreen" class="screen">
+                <div class="welcome-card">
+                    <h1>Ready for a <span class="gradient-text">Challenge</span>?</h1>
+                    <p>Test your wits across multiple categories. Accuracy and speed both matter!</p>
+                    <div class="setup-group">
+                        <label>Choose a Category</label>
+                        <select id="categorySelect">
+                            <option value="9">General Knowledge</option>
+                            <option value="18">Science & Computers</option>
+                            <option value="23">History</option>
+                            <option value="21">Sports</option>
+                        </select>
+                    </div>
+                    <button id="startBtn" class="btn-primary btn-large">Start Quest</button>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quizScreen" class="screen hidden">
+                <div class="quiz-header">
+                    <div class="progress-container">
+                        <div class="progress-text">Question <span id="currentQuestionNum">1</span>/10</div>
+                        <div class="progress-bar-wrap">
+                            <div id="progressBar" class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="timer-box">
+                        <i class="fa-solid fa-clock"></i>
+                        <span id="timer">15</span>s
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h2 id="questionText">Loading question...</h2>
+                    <div id="optionsContainer" class="options-grid">
+                        <!-- Options injected by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="resultScreen" class="screen hidden">
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h2>Quest Complete!</h2>
+                    <div class="score-display">
+                        <div class="score-val" id="finalScore">0</div>
+                        <div class="score-label">Points Earned</div>
+                    </div>
+                    <p id="resultMsg">Impressive performance!</p>
+                    <div class="result-btns">
+                        <button id="restartBtn" class="btn-primary">Play Again</button>
+                        <button id="saveScoreBtn" class="btn-outline">Save to Leaderboard</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Leaderboard Modal -->
+        <div id="modalOverlay" class="modal-overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>Leaderboard</h2>
+                    <button id="closeModal" class="close-btn">&times;</button>
+                </div>
+                <div id="leaderboardList" class="leaderboard-list">
+                    <!-- Scores injected by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a20d0df95ade248e',t:'MTc4NTAwMjMyNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

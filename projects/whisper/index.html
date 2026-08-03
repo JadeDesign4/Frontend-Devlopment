@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whisper - Seamless Conversations</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-area">
+                    <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36093 14.891 4 16.1272L3 21L7.8728 20C9.10898 20.6391 10.5124 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 12H8.01M12 12H12.01M16 12H16.01" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="app-name">Whisper</span>
+                </div>
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+            
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search chats...">
+            </div>
+
+            <div class="chat-list" id="chatList">
+                <!-- Chat items will be here -->
+                <div class="chat-item active">
+                    <div class="avatar">JD</div>
+                    <div class="chat-info">
+                        <div class="chat-name">John Doe</div>
+                        <div class="chat-last-msg">Typing...</div>
+                    </div>
+                    <div class="chat-meta">
+                        <div class="time">12:45</div>
+                        <div class="unread">2</div>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <div class="avatar" style="background: #f59e0b;">SA</div>
+                    <div class="chat-info">
+                        <div class="chat-name">Sarah Anderson</div>
+                        <div class="chat-last-msg">See you tomorrow!</div>
+                    </div>
+                    <div class="chat-meta">
+                        <div class="time">Yesterday</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <header class="chat-header">
+                <div class="active-user">
+                    <div class="avatar">JD</div>
+                    <div>
+                        <div class="active-name">John Doe</div>
+                        <div class="status online">Online</div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn"><i class="fa-solid fa-phone"></i></button>
+                    <button class="icon-btn"><i class="fa-solid fa-video"></i></button>
+                    <button class="icon-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </div>
+            </header>
+
+            <div class="messages-container" id="messagesContainer">
+                <div class="message received">
+                    <div class="bubble">Hey! Have you seen the new designs?</div>
+                    <div class="msg-time">12:40 PM</div>
+                </div>
+                <div class="message sent">
+                    <div class="bubble">Not yet, let me check them out.</div>
+                    <div class="msg-time">12:42 PM</div>
+                </div>
+                <div class="message received">
+                    <div class="bubble">They look amazing. The dark mode is finally here!</div>
+                    <div class="msg-time">12:44 PM</div>
+                </div>
+            </div>
+
+            <footer class="chat-input-area">
+                <button class="icon-btn"><i class="fa-regular fa-face-smile"></i></button>
+                <button class="icon-btn"><i class="fa-solid fa-paperclip"></i></button>
+                <form id="messageForm" class="message-form">
+                    <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
+                    <button type="submit" class="send-btn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a20ccaed6d290d9a',t:'MTc4NDk5OTU3OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PennyWise - Smart Expense Tracking</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-area">
+                <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 7V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12 17V17.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <span class="app-name">PennyWise</span>
+            </div>
+            <div class="header-right">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <!-- Balance Overview -->
+            <section class="overview-section">
+                <div class="balance-card">
+                    <h3>Total Balance</h3>
+                    <h1 id="totalBalance">$0.00</h1>
+                    <div class="stats-row">
+                        <div class="stat-item income">
+                            <i class="fa-solid fa-arrow-down"></i>
+                            <div>
+                                <p>Income</p>
+                                <h4 id="totalIncome">$0.00</h4>
+                            </div>
+                        </div>
+                        <div class="stat-item expense">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            <div>
+                                <p>Expenses</p>
+                                <h4 id="totalExpenses">$0.00</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Spending Breakdown</h3>
+                    <canvas id="spendingChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Transactions Section -->
+            <section class="transactions-section">
+                <div class="section-header">
+                    <h2>Recent Transactions</h2>
+                    <button class="btn-primary" id="addBtn">
+                        <i class="fa-solid fa-plus"></i> Add Transaction
+                    </button>
+                </div>
+
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="income">Income</button>
+                    <button class="filter-btn" data-filter="expense">Expenses</button>
+                </div>
+
+                <div class="transaction-list" id="transactionList">
+                    <!-- Transactions will be injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for New Transaction -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>New Transaction</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="desc" placeholder="e.g. Salary, Groceries" required>
+                </div>
+                <div class="form-group">
+                    <label>Amount ($)</label>
+                    <input type="number" id="amount" step="0.01" placeholder="0.00" required>
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <div class="type-selector">
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="income" checked>
+                            <span>Income</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="expense">
+                            <span>Expense</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="category">
+                        <option value="Food">Food & Drinks</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Work">Work/Salary</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Add Transaction</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a20cde0eba647011',t:'MTc4NTAwMDM2Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

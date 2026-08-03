@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Akib | Software Developer Portfolio</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">AG<span>.dev</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-btn"><i class="fa-solid fa-sun"></i></button>
+                <a href="/home/user/uploads/Akib_Gabriel_CV_v2.pdf" class="btn-resume" target="_blank">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Available for new opportunities</span>
+                <h1>Hi, I'm <span class="gradient-text">Akib Gabriel</span>.</h1>
+                <h2>Software Developer & Frontend Engineer</h2>
+                <p>I build scalable, high-performance web applications with a focus on modern user experiences and robust architecture. I recently completed a rigorous 10-project development roadmap showcasing versatility in API integration, state management, and professional UI design.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-outline">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About/Experience Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am a passionate Software Developer dedicated to creating efficient and beautiful digital solutions. My approach combines technical precision with a deep understanding of user-centric design.</p>
+                    <div class="education">
+                        <h3>Education & Experience</h3>
+                        <div class="edu-item">
+                            <div class="edu-dot"></div>
+                            <div class="edu-info">
+                                <strong>Professional Software Roadmap</strong>
+                                <p>Completed 10 Job-Ready Projects | 2026</p>
+                            </div>
+                        </div>
+                        <div class="edu-item">
+                            <div class="edu-dot"></div>
+                            <div class="edu-info">
+                                <strong>Software Engineering Specialist</strong>
+                                <p>Focus on Frontend & API Integration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="skills" class="skills-card">
+                    <h3>Technical Stack</h3>
+                    <div class="skills-grid">
+                        <div class="skill-tag">HTML5</div>
+                        <div class="skill-tag">CSS3</div>
+                        <div class="skill-tag">JavaScript (ES6+)</div>
+                        <div class="skill-tag">REST APIs</div>
+                        <div class="skill-tag">UI/UX Design</div>
+                        <div class="skill-tag">Git/GitHub</div>
+                        <div class="skill-tag">State Management</div>
+                        <div class="skill-tag">Responsive Design</div>
+                        <div class="skill-tag">Modern Web Standards</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>A selection of applications built during my recent intensive development roadmap.</p>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1: SwiftCart -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div class="project-info">
+                        <h3>SwiftCart</h3>
+                        <p>A full-featured E-commerce storefront integrated with the Fake Store API. Features a dynamic cart system and category filtering.</p>
+                        <div class="tags"><span>API</span> <span>E-commerce</span> <span>JS</span></div>
+                        <a href="../SwiftCart/index.html" class="btn-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 2: CinePrime -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fa-solid fa-film"></i></div>
+                    <div class="project-info">
+                        <h3>CinePrime</h3>
+                        <p>Netflix-style movie discovery app using the TMDB API. Features live search, trending lists, and high-fidelity modals.</p>
+                        <div class="tags"><span>TMDB API</span> <span>Design</span> <span>Fetch</span></div>
+                        <a href="../CinePrime/index.html" class="btn-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Whisper -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fa-solid fa-comments"></i></div>
+                    <div class="project-info">
+                        <h3>Whisper</h3>
+                        <p>A sleek messaging interface with simulated real-time replies and a persistent dual-theme system.</p>
+                        <div class="tags"><span>Real-time</span> <span>UI/UX</span> <span>Local Storage</span></div>
+                        <a href="../Whisper/index.html" class="btn-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 4: GitSpy -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fa-brands fa-github"></i></div>
+                    <div class="project-info">
+                        <h3>GitSpy</h3>
+                        <p>Powerful GitHub profile finder using the GitHub REST API. Visualizes profile stats and recent repositories.</p>
+                        <div class="tags"><span>GitHub API</span> <span>Dashboards</span></div>
+                        <a href="../GitSpy/index.html" class="btn-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 5: PassGuard -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="project-info">
+                        <h3>PassGuard</h3>
+                        <p>A secure password manager with strength estimation and clipboard integration. Focuses on security-first design.</p>
+                        <div class="tags"><span>Security</span> <span>State</span></div>
+                        <a href="../PassGuard/index.html" class="btn-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 6: PennyWise -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div class="project-info">
+                        <h3>PennyWise</h3>
+                        <p>Finance tracker with dynamic data visualization using Chart.js. Helps users monitor spending habits through visuals.</p>
+                        <div class="tags"><span>Data Vis</span> <span>Finance</span> <span>Charts</span></div>
+                        <a href="../PennyWise/index.html" class="btn-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="more-projects">
+                <p>...and 4 more high-quality projects including <strong>Lumina</strong>, <strong>MindQuest</strong>, <strong>HireHub</strong>, and <strong>TaskFlow</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-card">
+                <h2>Let's Work Together</h2>
+                <p>I'm currently looking for new opportunities in Software Development. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                <div class="contact-methods">
+                    <a href="/cdn-cgi/l/email-protection#385953515a165f595a4a515d54785d40595548545d165b5755" class="btn-primary">Say Hello</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Akib Gabriel. Designed & Built with Arena.ai</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a20d30bcdf24025d',t:'MTc4NTAwMzc0OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
+</body>
+</html>
